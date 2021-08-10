@@ -1,0 +1,31 @@
+﻿@page
+@model EssentialStore.Pages.Purchase.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-page="Create" class="btn btn-danger">Create New</a>
+</p>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Import)
+        {
+        <div class="col-md-6">
+            <h1>@Html.DisplayFor(modelItem => item.Name)</h1>
+            <hr />
+            <h2>@Html.DisplayFor(modelItem => item.Product)</h2>
+            <p>@Html.DisplayFor(modelItem => item.BDate)</p>
+            <a asp-page="./Edit" class="btn btn-warning" asp-route-id="@item.id">Edit</a> |
+            <a asp-page="./Details" class="btn btn-primary" asp-route-id="@item.id">Details</a> |
+            <a asp-page="./Delete" class="btn btn-success" asp-route-id="@item.id">Delete</a>
+
+        </div>
+        }
+        </div>
+
+</div>
+        
